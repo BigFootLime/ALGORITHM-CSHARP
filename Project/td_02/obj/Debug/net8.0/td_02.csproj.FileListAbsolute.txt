@@ -1,0 +1,14 @@
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\td_02.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\td_02.AssemblyInfoInputs.cache
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\td_02.AssemblyInfo.cs
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\td_02.csproj.CoreCompileInputs.cache
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\bin\Debug\net8.0\td_02.exe
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\bin\Debug\net8.0\td_02.deps.json
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\bin\Debug\net8.0\td_02.runtimeconfig.json
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\bin\Debug\net8.0\td_02.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\bin\Debug\net8.0\td_02.pdb
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\td_02.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\refint\td_02.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\td_02.pdb
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\td_02.genruntimeconfig.cache
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\ref\td_02.dll

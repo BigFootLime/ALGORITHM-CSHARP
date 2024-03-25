@@ -1,0 +1,14 @@
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\bin\Debug\net8.0\consoleProject.exe
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\bin\Debug\net8.0\consoleProject.deps.json
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\bin\Debug\net8.0\consoleProject.runtimeconfig.json
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\bin\Debug\net8.0\consoleProject.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\bin\Debug\net8.0\consoleProject.pdb
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\obj\Debug\net8.0\consoleProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\obj\Debug\net8.0\consoleProject.AssemblyInfoInputs.cache
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\obj\Debug\net8.0\consoleProject.AssemblyInfo.cs
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\obj\Debug\net8.0\consoleProject.csproj.CoreCompileInputs.cache
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\obj\Debug\net8.0\consoleProject.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\obj\Debug\net8.0\refint\consoleProject.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\obj\Debug\net8.0\consoleProject.pdb
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\obj\Debug\net8.0\consoleProject.genruntimeconfig.cache
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\consoleProject\obj\Debug\net8.0\ref\consoleProject.dll
