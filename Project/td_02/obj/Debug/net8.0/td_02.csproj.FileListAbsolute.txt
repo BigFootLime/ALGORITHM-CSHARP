@@ -12,3 +12,4 @@ C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\refint\
 C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\td_02.pdb
 C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\td_02.genruntimeconfig.cache
 C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\ref\td_02.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_02\obj\Debug\net8.0\td_02.sourcelink.json

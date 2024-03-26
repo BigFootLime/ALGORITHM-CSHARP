@@ -1,0 +1,15 @@
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\bin\Debug\net8.0\Game1.exe
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\bin\Debug\net8.0\Game1.deps.json
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\bin\Debug\net8.0\Game1.runtimeconfig.json
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\bin\Debug\net8.0\Game1.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\bin\Debug\net8.0\Game1.pdb
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\obj\Debug\net8.0\Game1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\obj\Debug\net8.0\Game1.AssemblyInfoInputs.cache
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\obj\Debug\net8.0\Game1.AssemblyInfo.cs
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\obj\Debug\net8.0\Game1.csproj.CoreCompileInputs.cache
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\obj\Debug\net8.0\Game1.sourcelink.json
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\obj\Debug\net8.0\Game1.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\obj\Debug\net8.0\refint\Game1.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\obj\Debug\net8.0\Game1.pdb
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\obj\Debug\net8.0\Game1.genruntimeconfig.cache
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\Game1\obj\Debug\net8.0\ref\Game1.dll

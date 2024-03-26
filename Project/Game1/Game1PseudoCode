@@ -1,0 +1,38 @@
+Initialisation du jeu 
+  Générer un nombre random entre 1 et 10000 et le garder en mémoire
+  Initialiser le compteur de tentatives à 0
+  (En Option -->)  Définir un nombre maximum de tentatives autorisées.
+
+Début de la partie
+  Afficher les règles du jeu pour l utilisateur
+
+Boucle principale du jeu
+  Tant que le nombre n est pas trouvé et que le nombre maximum de tentatives n a pas ete atteint
+    {
+        Afficher une invite demandant au joueur de saisir un nombre.
+        (En Option -->) Afficher le nombre de tentatives restantes (nombre maximum de tentatives - compteur de tentatives).
+        (En Option -->) Afficher une invite pour permettre à l utilisatuer de quitter la partie.
+        Incrémenter le compteur de tentatives.
+        Récupérer la saisie du joueur.
+        Si ( le joueur saisit "q"){
+            quitter le jeu.
+        }
+        Sinon{
+            convertir l entrée en int et comparer avec le nombre à deviner
+
+            Si (le nombre saisi est égal au nombre selectionner par le programme){
+                Afficher un message de félicitations.
+                Afficher le nombre de tentatives.
+                Terminer la boucle.
+            }
+
+        Sinon, indiquer si le nombre selectionner par le programme est plus petit ou plus grand.
+        (En Option -->) Si le nombre de tentatives restantes est égal à 0, terminer la boucle (le joueur a perdu)
+        (En Option -->) Console affiche une demande de rejouer
+        (En Option -->) Si le jouer tape o { rejouer = true} sinon quitter la boucle
+
+      
+    }
+Fin de la partie
+  Afficher un message de fin de partie.
+  (En Option -->) Demander au joueur si il souhaite rejouer.

@@ -9,9 +9,17 @@ class Program
         //(0 °C × 9/5) + 32 = 32 °F
         Console.WriteLine("Entrez une température en degrés Celsius:");
         string? input = Console.ReadLine();
-        double celsius = Convert.ToDouble(input);
-        double fahrenheit = (celsius * 9 / 5) + 32;
-        Console.WriteLine("Réponse à l'exercice 1: " + celsius + "°C = " + fahrenheit + " °F");
+        try
+        {
+            double celsius = Convert.ToDouble(input);
+            double fahrenheit = (celsius * 9 / 5) + 32;
+            Console.WriteLine("Réponse à l'exercice 1: " + celsius + "°C = " + fahrenheit + " °F");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Erreur: Entrez un nombre valide.");
+        }
+
 
         //Exercice 2
         Console.WriteLine("Entrez le premier nombre:");
@@ -20,7 +28,7 @@ class Program
         string? inputNo2 = Console.ReadLine();
         Console.WriteLine("Entrez le troisième nombre:");
         string? inputNo3 = Console.ReadLine();
-        int[] numbers = { Convert.ToInt32(inputNo1), Convert.ToInt32(inputNo2), Convert.ToInt32(inputNo3) };
+        int[] numbers = [Convert.ToInt32(inputNo1), Convert.ToInt32(inputNo2), Convert.ToInt32(inputNo3)];
         int sum = 0;
         foreach (int i in numbers)
         {
@@ -29,6 +37,68 @@ class Program
         float average = (float)sum / numbers.Length;
         Console.WriteLine("La moyenne est: " + average);
 
+        //Exercice 3 
+        Console.WriteLine("Entrez un nombre:");
+        string? inputExo3 = Console.ReadLine();
+        try
+        {
+            int convertedInput = Convert.ToInt32(inputExo3);
+            if (convertedInput % 2 == 0)
+            {
+                Console.WriteLine("Réponse à l'exercice 3: Le nombre saisis est pair");
+            }
+            else
+            {
+                Console.WriteLine("Réponse à l'exercice 3: Le nombre saisis est impair");
+            }
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Erreur: Entrez un nombre valide.");
+        }
 
+        //Exercice 4
+        Console.WriteLine("Entrez un nombre:");
+        int inputExo4 = Convert.ToInt32(Console.ReadLine());
+        try
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine("Réponse à l'exercice 4 " + inputExo4 * i);
+            }
+
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Erreur: Entrez un nombre valide.");
+        }
+        //Exercice 5
+        Console.WriteLine("Entrez un nombre:");
+        string? inputExo5 = Console.ReadLine();
+        MyTryCatch(() =>
+        {
+            int sumExo5 = 0;
+            int convertedInput = Convert.ToInt32(inputExo5);
+            for (int i = 1; i <= convertedInput; i++)
+            {
+                sumExo5 += i;
+            }
+            return sumExo5;
+        });
+
+
+
+    }
+    public static void MyTryCatch(Func<int> exercise)
+    {
+        try
+        {
+            int result = exercise();
+            Console.WriteLine("Result: " + result);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Erreur: Entrez un nombre valide.");
+        }
     }
 }
