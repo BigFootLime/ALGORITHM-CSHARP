@@ -24,5 +24,19 @@ namespace td_01
                 Console.WriteLine("Réponse à l'exercice 1: false");
             }
         }
+
+        // CORRECTION :
+
+        // public static bool Search(int entier, int[] tab)
+        // {
+        //     foreach (var nombre in tab)
+        //     {
+        //         if (nombre == entier)
+        //         {
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // } 
     }
 }

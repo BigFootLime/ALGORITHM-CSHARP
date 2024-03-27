@@ -40,3 +40,4 @@ C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_01\bin\Debug\net8.0\Exercic
 C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_01\bin\Debug\net8.0\Exercice1.pdb
 C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_01\obj\Debug\net8.0\Exercice1.genruntimeconfig.cache
 C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_01\obj\Debug\net8.0\ref\Exercice1.dll
+C:\Users\kesma\Documents\ALGORITHM CSHARP\Project\td_01\obj\Debug\net8.0\Exercice1.sourcelink.json

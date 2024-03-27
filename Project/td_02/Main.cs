@@ -7,13 +7,13 @@ class Program
     {
         //Exercice 1
         //(0 °C × 9/5) + 32 = 32 °F
-        Console.WriteLine("Entrez une température en degrés Celsius:");
-        string? input = Console.ReadLine();
+
+
+        Console.WriteLine("Entrez une température en degrés Celsius:"); // Console affiche le message
+        string? input = Console.ReadLine(); // L'utilisateur entre une valeur
         try
         {
-            double celsius = Convert.ToDouble(input);
-            double fahrenheit = (celsius * 9 / 5) + 32;
-            Console.WriteLine("Réponse à l'exercice 1: " + celsius + "°C = " + fahrenheit + " °F");
+            Exercice1.ConvertCelsiusToFahrenheit(input); // Appel de la méthode ConvertCelsiusToFahrenheit de la classe Exercice1
         }
         catch (FormatException)
         {
@@ -57,12 +57,15 @@ class Program
             Console.WriteLine("Erreur: Entrez un nombre valide.");
         }
 
+        // CORRECTION 
+        //Pour simplifier: string str = n % 2 == 0 ? "pair" : "impair";
+
         //Exercice 4
         Console.WriteLine("Entrez un nombre:");
-        int inputExo4 = Convert.ToInt32(Console.ReadLine());
+        double inputExo4 = Convert.ToDouble(Console.ReadLine());
         try
         {
-            for (int i = 1; i <= 10; i++)
+            for (double i = 1; i <= 10; i++)
             {
                 Console.WriteLine("Réponse à l'exercice 4 " + inputExo4 * i);
             }
@@ -72,10 +75,11 @@ class Program
         {
             Console.WriteLine("Erreur: Entrez un nombre valide.");
         }
-        //Exercice 5
-        Console.WriteLine("Entrez un nombre:");
+
+        Console.WriteLine("Entrez un nombre entier:");
         string? inputExo5 = Console.ReadLine();
-        MyTryCatch(() =>
+
+        try
         {
             int sumExo5 = 0;
             int convertedInput = Convert.ToInt32(inputExo5);
@@ -83,22 +87,12 @@ class Program
             {
                 sumExo5 += i;
             }
-            return sumExo5;
-        });
-
-
-
-    }
-    public static void MyTryCatch(Func<int> exercise)
-    {
-        try
-        {
-            int result = exercise();
-            Console.WriteLine("Result: " + result);
+            Console.WriteLine("Result: " + sumExo5);
         }
         catch (FormatException)
         {
             Console.WriteLine("Erreur: Entrez un nombre valide.");
         }
+
     }
 }

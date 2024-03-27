@@ -11,7 +11,7 @@ namespace Game1
             {
                 Random getRandomNumber = new Random(); // Ici on crée une nouvelle instance de la classe Random pour pouvoir generer des nombres aléatoires
                 int secretNumber = getRandomNumber.Next(1, 10001); // Ici on génère un nombre aléatoire entre 1 et 10000
-                // Console.WriteLine(secretNumber);  Ici on affiche le nombre secret pour des raisons de test
+                // Console.WriteLine(secretNumber);  Ici on affiche le nombre secret pour tester
                 int playerAttempts = 0; // Ici on initialise le nombre de tentatives du joueur à 0
                 int playerMaxAttempts = 15; // Ici on initialise le nombre de tentatives maximum du joueur à 10
                 bool playerHasWon = false; // Ici on initialise la variable qui indique si le joueur a gagné ou non à false

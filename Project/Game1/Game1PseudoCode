@@ -7,6 +7,7 @@ Début de la partie
   Afficher les règles du jeu pour l utilisateur
 
 Boucle principale du jeu
+
   Tant que le nombre n est pas trouvé et que le nombre maximum de tentatives n a pas ete atteint
     {
         Afficher une invite demandant au joueur de saisir un nombre.
