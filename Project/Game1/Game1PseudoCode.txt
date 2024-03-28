@@ -1,0 +1,67 @@
+-------------------------------------INFO---------------------------------------
+**DISPLAYINPUT: Displays info in the console (instructions, GUI, etc..)**
+**BOOL: a boolean**
+**WHILE: The while loop**
+**IF / ELSE IF / ELSE: if loop**
+**FUNCTION: Calls a function**
+**GENERATE: generates a random**
+**SET: defines declaring a variable (int, string, etc...)
+       or changing a predeclared variable**
+**GET: whenever the console reads the users input (Console.ReadLine)**
+**INCREMENT: defines the incrementation of a variable**
+=====================================END========================================
+
+
+-----------------------PSEUDO CODE JUSTE PRIX-----------------------------
+BOOL inGame = true
+
+WHILE inGame == true:
+    GENERATE secretNumber between 1 and 10000
+    SET playerAttempts = 0
+    SET playerMaxAttempts = 15
+    SET playerHasWon = false
+
+    DISPLAYINPUT "Welcome message and game rules"
+
+    WHILE playerHasWon == false AND playerAttempts < playerMaxAttempts:
+        DISPLAYINPUT "Enter a number between 1 and 10000"
+        GET playerInput
+
+        IF playerInput == "q":
+            DISPLAY "Exit message"
+            SET inGame = false
+
+        INCREMENT playerAttempts
+        IF playerInput is a number:
+            IF playerInput > 10000:
+                DISPLAY "Error message"
+                INCREMENT playerAttempts
+            ELSE IF playerInput < 1:
+                DISPLAY "Error message"
+                INCREMENT playerAttempts
+            IF playerInput == secretNumber:
+                SET playerHasWon = true
+                DISPLAY "Winning message"
+                SET inGame = false
+            ELSE IF playerInput < secretNumber:
+                DISPLAY "Hint message"
+                DISPLAY "Remaining attempts"
+            ELSE:
+                DISPLAY "Hint message"
+                DISPLAY "Remaining attempts"
+        ELSE:
+            DISPLAY "Error message"
+            INCREMENT playerAttempts by 3
+            DISPLAY "Remaining attempts"
+
+        IF playerAttempts == playerMaxAttempts:
+            DISPLAY "Losing message"
+            SET inGame = false
+
+    DISPLAYINPUT "End of game message"
+    DISPLAYINPUT "Do you want to play again?"
+    GET replay
+
+    IF replay != "o":
+        SET inGame = false
+=========================END OF PSEUDO CODE==============================

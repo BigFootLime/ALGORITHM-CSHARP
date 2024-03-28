@@ -1,3 +1,111 @@
+-------------------------------------INFO---------------------------------------
+**DISPLAYINPUT: Displays info in the console (instructions, GUI, etc..)**
+**BOOL: a boolean**
+**WHILE: The while loop**
+**IF / ELSE IF / ELSE: if loop**
+**FUNCTION: Calls a function**
+**GENERATE: generates a random**
+**SET: defines declaring a variable (int, string, etc...)
+       or changing a predeclared variable**
+**GET: whenever the console reads the users input (Console.ReadLine)**
+**INCREMENT: defines the incrementation of a variable**
+**SWITCH /CASE: switches between the cases based off a predefined variable**
+=====================================END========================================
+
+-----------------------PSEUDO CODE PENDU GAME-----------------------------
+
+BOOL playAgain = true
+
+WHILE playAgain == true:
+    SET wordsEasy = ["pomme", "camion", "chips", "csharp", "dotnet", "orange", "burger"]
+    SET wordsMedium = ["avocado", "tractor", "pineapple" "javascript", "bear", "hotdog"]
+    SET wordsHard = ["dragonfruit", "transporter", "raddish", "microsoft", "elephant", "mcdonalds"]
+
+    GET difficultyLevel from Menu
+     SWITCH difficultyLevel:
+        CASE "1":
+            SET words = wordsEasy
+        CASE "2":
+            SET words = wordsMedium
+        CASE "3":
+            SET words = wordsHard
+        DEFAULT:
+            DISPLAY "Invalid option. Defaulting to Easy."
+            SET words = wordsEasy
+
+
+    SET penduDrawings = ["", "=========\n", ...]
+    REVERSE penduDrawings
+
+    GENERATE randomIndex between 0 and length of words
+    SET secretWord = words[randomIndex]
+    SET guessedLetters = empty set
+    SET attemptsLeft = length of penduDrawings
+    SET currentDisplay = string of '_' of length secretWord
+
+    DISPLAY "Welcome message"
+
+    WHILE attemptsLeft > 0 AND currentDisplay contains '_':
+        DISPLAY "Word: currentDisplay"
+        DISPLAY penduDrawings[attemptsLeft - 1]
+        DISPLAY "Remaining attempts: attemptsLeft"
+        DISPLAY "Guess a letter: "
+        GET playerInput
+
+        IF playerInput == "q":
+            DISPLAY "Exit message"
+            EXIT
+
+        IF length of playerInput != 1:
+            DISPLAY "Error message"
+            CONTINUE
+
+        IF playerInput is not a letter:
+            DISPLAY "Error message"
+            CONTINUE
+
+        SET guessedLetter = playerInput
+
+        IF guessedLetters contains guessedLetter:
+            DISPLAY "Error message"
+            CONTINUE
+
+        ADD guessedLetter to guessedLetters
+
+        IF secretWord contains guessedLetter:
+            DISPLAY "Correct message"
+            FOR each character in secretWord:
+                IF character == guessedLetter:
+                    REPLACE '_' with guessedLetter in currentDisplay
+        ELSE:
+            DISPLAY "Incorrect message"
+            DECREMENT attemptsLeft
+
+    IF attemptsLeft > 0:
+        DISPLAY "Winning message"
+    ELSE:
+        DISPLAY "Losing message"
+        DISPLAY "The word was: secretWord"
+        DISPLAY penduDrawings[0]
+
+    DISPLAY "End of game message"
+    DISPLAY "Do you want to play again?"
+    GET replay
+
+    IF replay != "o":
+        SET playAgain = false
+
+
+
+
+
+
+
+
+
+
+LISTINPUTS: 
+
 Début du jeu du pendu
 
 Pendant que l'utilisateur n'a pas quitté{

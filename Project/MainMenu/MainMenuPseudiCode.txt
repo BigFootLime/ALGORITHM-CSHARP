@@ -1,0 +1,69 @@
+-------------------------------------INFO---------------------------------------
+**DISPLAYINPUT: Ce qu'affiche la console (que ce soit du text ou l'interface)**
+**BOOL: Une boolean**
+**WHILE: la boucle while**
+**IF / ELSE IF / ELSE: la boucle if**
+**FUNCTION: Démontre une appelation vers un fonction**
+=====================================END========================================
+
+
+
+-------------PSEUDO CODE MAIN MENU--------------------
+DISPLAYINPUT "Welcome to the Main Menu!"
+DISPLAYINPUT "Please select an option:"
+BOOL runningMenu = true
+
+WHILE runningMenu == true:
+    DISPLAYINPUT "1. Pendu"
+    DISPLAYINPUT "2. Juste prix"
+    DISPLAYINPUT "3. Exit"
+    INPUT choice
+
+    IF choice == 1:
+        CALLFUNCTION DisplayPenduMenu()
+    ELSE IF choice == 2:
+        CALLFUNCTION DisplayJustePrixMenu()
+    ELSE IF choice == 3:
+        EXIT the program
+    ELSE:
+        DISPLAY "Invalid choice. Please try again."
+
+FUNCTION DisplayPenduMenu():
+    CLEAR the console screen
+    DISPLAYINPUT "Pendu Game Menu"
+    DISPLAYINPUT "1. Start Game"
+    DISPLAYINPUT "2. Instructions"
+    INPUT penduChoice
+
+    IF penduChoice == 1:
+        CALLFUNCTION StartPenduGame()
+    ELSE IF penduChoice == 2:
+        CALLFUCNTION ReturnToMain()
+    ELSE:
+        DISPLAYINPUT "Invalid choice. Please try again."
+        CALLFUNCTION DisplayPenduMenu()
+
+FUNCTION DisplayJustePrixMenu():
+    CLEAR the console screen
+    DISPLAYINPUT "Juste Prix Game Menu"
+    DISPLAYINPUT "1. Start Game"
+    DISPLAYINPUT "2. Instructions"
+    DISPLAYINPUT "3. Go Back to Main Menu"
+    INPUT justePrixChoice
+
+    IF justePrixChoice == 1:
+        CALLFUNCTION StartJustePrixGame()
+    ELSE IF justePrixChoice == 2:
+        CALLFUNCTION DisplayJustePrixInstructions()
+    ELSE IF justePrixChoice == 3:
+        RETURN to Main Menu
+    ELSE:
+        DISPLAYINPUT "Invalid choice. Please try again."
+        CALLFUNCTION DisplayJustePrixMenu()
+
+FUNCTION StartPenduGame():
+     Code to start the Pendu game
+
+FUNCTION StartJustePrixGame():
+     Code to start the Juste Prix game
+====================END OF PSEUDO CODE======================

@@ -6,90 +6,81 @@ namespace Game1
     {
         static void Main(string[] args)
         {
-            bool playAgain = true;
-            while (playAgain)
+            bool inGame = true;
+            while (inGame)
             {
-                Random getRandomNumber = new Random(); // Ici on crée une nouvelle instance de la classe Random pour pouvoir generer des nombres aléatoires
-                int secretNumber = getRandomNumber.Next(1, 10001); // Ici on génère un nombre aléatoire entre 1 et 10000
-                // Console.WriteLine(secretNumber);  Ici on affiche le nombre secret pour tester
-                int playerAttempts = 0; // Ici on initialise le nombre de tentatives du joueur à 0
-                int playerMaxAttempts = 15; // Ici on initialise le nombre de tentatives maximum du joueur à 10
-                bool playerHasWon = false; // Ici on initialise la variable qui indique si le joueur a gagné ou non à false
+                Random getRandomNumber = new Random(); // Create a new instance of the Random class to generate random numbers
+                int secretNumber = getRandomNumber.Next(1, 10001); // Generate a random number between 1 and 10000
+                int playerAttempts = 0; // Initialize the player's attempt count to 0
+                int playerMaxAttempts = 15; // Initialize the maximum number of attempts for the player to 15
+                bool playerHasWon = false; // Initialize the variable indicating whether the player has won to false
 
-                Console.WriteLine("Bienvenue dans le jeu du juste prix.... Devinez le nombre secret pour gagner un Kinder ;) Bonne chance!!"); // Ici on affiche un message de bienvenue
-                Console.WriteLine("Vous avez droit à 10 tentatives pour trouver le nombre secret"); // Ici on affiche  un message qui indique le nombre de tentatives maximum du joueur
+                Console.WriteLine("Welcome to the guessing game.... Guess the secret number to win a Kinder ;) Good luck!!"); // Display a welcome message to the player
+                Console.WriteLine("You have 15 attempts to find the secret number"); // Display the number of attempts the player has
 
-                // Ici on crée une boucle qui s'execute en continue tant que le joueur n'a pas gagné et que son nombre de tentatives est inferieur au nombre tentatives données.
-                while (playerHasWon == false && playerAttempts < playerMaxAttempts)
+                while (!playerHasWon && playerAttempts < playerMaxAttempts) // Continue the game until the player wins or runs out of attempts
                 {
-                    Console.WriteLine("Entrez un nombre entre 1 et 10000: "); // Ici on demande au joueur d'entrer un nombre
-                    string playerInput = Console.ReadLine(); // Ici on récupère l'input entré par le joueur
+                    Console.WriteLine("Enter a number between 1 and 10000: "); // Prompt the player to enter a number
+                    string playerInput = Console.ReadLine(); // Read the player's input from the console
 
-                    if (playerInput == "q") // Ici on vérifie si le joueur a saisi 'q' pour quitter le jeu.
+                    if (playerInput == "q") // Check if the player wants to quit the game
                     {
-                        Console.WriteLine("Oh non! Vous partez si tôt. Ne rage quittez pas voyons!"); // Ici on affiche un message de sortie.
-                        break; // Sort de la boucle, mettant fin au jeu.
+                        Console.WriteLine("Oh no! You're leaving so soon. Don't rage quit!"); // Display a message to the player
+                        inGame = false; // Set the inGame variable to false to exit the game loop
                     }
 
-                    playerAttempts++; // Ici on incrémente le compteur de tentatives à chaque essai.
-                    int playerGuessedNumber; // Ici on crée une variable pour stocker le nombre saisi par le joueur
+                    playerAttempts++; // Increment the player's attempt count
+                    int playerGuessedNumber;  // Declare a variable to store the player's guessed number
 
-                    // Ici on vérifie si l'input du joueur est un nombre et si c'est le cas, on le stocke dans la variable playerGuessedNumber             
-                    if (int.TryParse(playerInput, out playerGuessedNumber))
+                    if (int.TryParse(playerInput, out playerGuessedNumber)) // Check if the player's input can be parsed as an integer
                     {
-                        if (playerGuessedNumber > 10000) // Ici on vérifie si le nombre saisi par le joueur est plus grand que le nombre maximal possible
+                        if (playerGuessedNumber > 10000) // Check if the player's number is larger than the maximum possible number
                         {
-                            Console.WriteLine("Erreur: Votre nombre est plus grand que le nombre maximal possible. Cela vous coûte 2 tentatives!"); // Ici on affiche un message indiquant que ca coutera 2 tentatives au joueur
-                            playerAttempts += 1; // Ici on incrémente le nombre de tentatives du joueur de 2
+                            Console.WriteLine("Error: Your number is larger than the maximum possible number. This costs you 2 attempts!"); // Display an error message to the player
+                            playerAttempts += 1; // Increment the player's attempt count by 2
                         }
-
-                        else if (playerGuessedNumber < 1)
+                        else if (playerGuessedNumber < 1) // Check if the player's number is smaller than the minimum possible number
                         {
-                            Console.WriteLine("Erreur: Votre nombre est plus petit que le nombre minimal possible. Cela vous coûte 2 tentatives!");
-                            playerAttempts += 1; // Ici on incrémente le nombre de tentatives du joueur de 2
+                            Console.WriteLine("Error: Your number is smaller than the minimum possible number. This costs you 2 attempts!"); // Display an error message to the player
+                            playerAttempts += 1; // Increment the player's attempt count by 2
                         }
-
-                        if (playerGuessedNumber == secretNumber) // Ici on vérifie si le nombre saisi par le joueur est égal au nombre secret
+                        else if (playerGuessedNumber == secretNumber) // Check if the player's guessed number matches the secret number
                         {
-                            playerHasWon = true; // Ici on met la variable playerHasWon à true pour indiquer que le joueur a gagné
-                            Console.WriteLine("Bravo! Vous avez trouvé le nombre secret en " + playerAttempts + " tentatives"); // Ici on affiche un message de félicitations
-                            break; // Ici on sort de la boucle
+                            playerHasWon = true; // Set the playerHasWon variable to true
+                            Console.WriteLine("Congratulations! You found the secret number in " + playerAttempts + " attempts"); // Display a congratulatory message to the player
+                            inGame = false; // Set the inGame variable to false to exit the game loop
                         }
-                        else if (playerGuessedNumber < secretNumber) // Ici on vérifie si le nombre saisi par le joueur est plus petit que le nombre secret
+                        else if (playerGuessedNumber < secretNumber) // Check if the player's guessed number is smaller than the secret number
                         {
-                            // Ici on affiche un message pour indiquer que le nombre secret est plus grand que le nombre saisi par le joueur
-                            Console.WriteLine("Le nombre secret est plus grand que " + playerGuessedNumber);
-                            Console.WriteLine("Il vous reste " + (playerMaxAttempts - playerAttempts) + " tentatives"); // Ici on affiche le nombre de tentatives restantes
+                            Console.WriteLine("The secret number is larger than " + playerGuessedNumber); // Display a message to the player
+                            Console.WriteLine("You have " + (playerMaxAttempts - playerAttempts) + " attempts left"); // Display the number of attempts the player has left
                         }
-                        else
+                        else // If none of the above conditions are met, the player's guessed number is larger than the secret number
                         {
-                            // Ici on affiche un message pour indiquer que le nombre secret est plus petit que le nombre saisi par le joueur
-                            Console.WriteLine("Le nombre secret est plus petit que " + playerGuessedNumber);
-                            Console.WriteLine("Il vous reste " + (playerMaxAttempts - playerAttempts) + " tentatives"); // Ici on affiche le nombre de tentatives restantes
+                            Console.WriteLine("The secret number is smaller than " + playerGuessedNumber); // Display a message to the player
+                            Console.WriteLine("You have " + (playerMaxAttempts - playerAttempts) + " attempts left"); // Display the number of attempts the player has left
                         }
                     }
                     else
                     {
-                        // Ici on affiche un message d'erreur si le joueur n'a pas saisi un nombre valide                                      
-                        Console.WriteLine("Erreur: Veuillez entrer un nombre valide entre 1 et 10000. Cela vous coûte 4 tentative!");
-                        playerAttempts += 3;
-                        Console.WriteLine("Il vous reste " + (playerMaxAttempts - playerAttempts) + " tentatives");
+                        Console.WriteLine("Error: Please enter a valid number between 1 and 10000. This costs you 4 attempts!"); // Display an error message to the player
+                        playerAttempts += 3; // Increment the player's attempt count by 4
+                        Console.WriteLine("You have " + (playerMaxAttempts - playerAttempts) + " attempts left"); // Display the number of attempts the player has left
                     }
-                    if (playerAttempts == playerMaxAttempts) // Ici on vérifie si le joueur a atteint le nombre maximum de tentatives
+                    if (playerAttempts == playerMaxAttempts)  // Check if the player has reached the maximum number of attempts
                     {
-                        Console.WriteLine("Vous avez atteint le nombre maximum de vos tentatives. Vous avez perdu."); // Ici on affiche un message de perte.
-                        break; // Sort de la boucle, le joueur a perdu.
+                        Console.WriteLine("You have reached the maximum number of attempts. You lost."); // Display a message to the player
+                        inGame = false; // Set the inGame variable to false to exit the game loop
                     }
                 }
-                Console.WriteLine("Merci d'avoir joué! A bientôt!"); // Ici on affiche un message de fin de jeu
-                Console.WriteLine("Voulez-vous rejouer? (o/n)"); // Ici la console affiche un message pour demander au joueur s'il veut rejouer
-                string replay = Console.ReadLine(); // ici on récupère la réponse du joueur
-                if (replay.ToLower() != "o") // Ici on vérifie si la réponse du joueur est différente de 'o'
+                Console.WriteLine("Thanks for playing! See you soon!"); // Display a message to the player
+                Console.WriteLine("Do you want to play again? (y/n)"); // Ask the player if they want to play again
+                string replay = Console.ReadLine(); // Read the player's response from the console
+                if (replay.ToLower() != "y") // Check if the player's response is not 'y'
                 {
-                    playAgain = false; // Ici on met la variable playAgain à false pour sortir de la boucle principale
+                    inGame = false; // Set the inGame variable to false to exit the game loop
                 }
             }
         }
-
     }
 }

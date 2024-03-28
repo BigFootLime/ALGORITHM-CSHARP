@@ -38,7 +38,6 @@ class Program
         Console.WriteLine("Commencement de l'exercice 4");
 
 
-
     }
 
     // CORRECTION
@@ -54,6 +53,21 @@ class Program
             array[i] = array[selectRandomIndex]; // On remplace la valeur actuelle de l'index i par la valeur de l'index aléatoire
             array[selectRandomIndex] = nextArray; // On remplace la valeur de l'index aléatoire par la valeur actuelle de l'index i
         }
+    }
+
+    //Exercice4
+    //CORRECTION
+    static int CountOccurence(int[] array, int number)
+    {
+        int count = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] == number)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 
 }

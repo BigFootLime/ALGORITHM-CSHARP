@@ -7,15 +7,34 @@ namespace Game2
     {
         static void Main(string[] args)
         {
-            List<string> mainMenu = new List<string> // Ici on crée une liste de string qui contient les options du menu principal
+            List<string> easyWords = new List<string> { "apple", "truck", "chips", "csharp", "dotnet", "orange", "burger" }; // Create a list of easy words for the game
+            List<string> mediumWords = new List<string> { "avocado", "tractor", "pineapple", "javascript", "bear", "hotdog" }; // Create a list of medium words for the game
+            List<string> hardWords = new List<string> { "dragonfruit", "transporter", "raddish", "microsoft", "elephant", "mcdonalds" };// Create a list of hard words for the game
+
+            List<string> menuOptions = new List<string> { "Easy", "Medium", "Hard" }; // Create a list of menu options for the player to choose the difficulty level
+            DisplayMainMenuPendu(menuOptions); // Display the main menu for the player to choose the difficulty level
+            int difficulty = Convert.ToInt32(Console.ReadLine()); // Read the player's input for the difficulty level
+
+            List<string> words; // Declare a list of words to store the words based on the player's chosen difficulty level
+            switch (difficulty) // Check the player's chosen difficulty level
             {
+                case 1: // If the player chose Easy
+                    words = easyWords; // Set the words list to the list of easy words
+                    break;
+                case 2: // If the player chose Medium
+                    words = mediumWords; // Set the words list to the list of medium words
+                    break;
+                case 3: // If the player chose Hard
+                    words = hardWords; // Set the words list to the list of hard words
+                    break;
+                default: // If the player chose an invalid option
+                    Console.WriteLine("Invalid option. Defaulting to Easy."); // Display an error message to the player
+                    words = easyWords; // Set the words list to the list of easy words
+                    break;
+            }
+           
 
-
-            };
-
-            List<string> words = new List<string> { "pomme", "camion", "dylan", "csharp", "dotnet", "orange", "burger" }; // Ici on crée une liste de string qui contient les mots à deviner
-
-            List<string> penduDrawings = new List<string> // Ici on crée une liste de string qui affiche ls unes après les autres la personne pendu.
+            List<string> penduDrawings = new List<string> // Create a list of drawings for the hangman game
             {
                 "",
                 "=========\n",
@@ -28,84 +47,92 @@ namespace Game2
                 "   +---+\n   |   |\n   O   |\n  /|\\  |\n       |\n       |\n=========",
                 "   +---+\n   |   |\n   O   |\n  /|\\  |\n  /    |\n       |\n=========",
                 "   +---+\n   |   |\n   O   |\n  /|\\  |\n  / \\  |\n       |\n=========",
-
             };
-            penduDrawings.Reverse(); // Ici on inverse l'ordre des éléments de la liste penduDrawings
+            penduDrawings.Reverse(); // Reverse the list of drawings to display the hangman from top to bottom
 
-
-            bool playAgain = true; // Ici on initialise la variable playAgain à true pour permettre au joueur de rejouer
-            while (playAgain) // Ici on crée une boucle qui s'execute en continue tant que le joueur veut rejouer
+            bool playAgain = true; // Initialize the variable to play the game again to true
+            while (playAgain) // Continue playing the game until the player chooses to quit
             {
-                Random random = new Random(); // Ici on crée une nouvelle instance de la classe Random pour pouvoir selectionner un des mots dans la liste words
-                string secretWord = words[random.Next(words.Count)]; // Ici on selectionne un mot aléatoire dans la liste words
-                HashSet<char> guessedLetters = new HashSet<char>(); // Ici on crée un HashSet pour stocker les lettres devinées par le joueur
-                int attemptsLeft = penduDrawings.Count; // Ici on initialise le nombre de tentatives restantes du joueur au nombre de dessins du pendu
-                string currentDisplay = new string('_', secretWord.Length * 2 - 1); // Ici on crée une chaine de caractères qui contient des underscores pour chaque lettre du mot secret
+                Random random = new Random(); // Create a new instance of the Random class to generate random numbers
+                string secretWord = words[random.Next(words.Count)]; // Select a random word from the list of words
+                HashSet<char> guessedLetters = new HashSet<char>(); // Create a hash set to store the guessed letters
+                int attemptsLeft = penduDrawings.Count; // Initialize the number of attempts left to the number of drawings
+                string currentDisplay = new string('_', secretWord.Length * 2 - 1); // Initialize the current display of the word with underscores
 
-                Console.WriteLine("Bienvenue au pendu! Devinez le mot ou tapez 'q' pour quitter."); // Ici on affiche un message de bienvenue
+                Console.WriteLine("Welcome to Hangman! Guess the word or type 'q' to quit."); // Display a welcome message to the player
 
-                while (attemptsLeft > 0 && currentDisplay.Contains('_')) // Ici on crée une boucle qui s'execute en continue tant que le joueur n'a pas trouvé le mot secret
+                while (attemptsLeft > 0 && currentDisplay.Contains('_')) // Continue the game until the player wins or runs out of attempts
                 {
-                    Console.WriteLine($"Mot: {currentDisplay}"); // Ici on affiche le mot secret avec les lettres devinées par le joueur
-                    Console.WriteLine(penduDrawings[attemptsLeft - 1]); // Ici on affiche le dessin du pendu correspondant au nombre de tentatives restantes et on baisse de 1 pour afficher le bon dessin
-                    Console.WriteLine($"Tentatives restantes: {attemptsLeft}"); // Ici on affiche le nombre de tentatives restantes
-                    Console.Write("Devinez une lettre: "); // Ici on demande au joueur de deviner une lettre
-                    string input = Console.ReadLine().ToLower(); // Ici on récupère l'input entré par le joueur et on le met en minuscule
+                    Console.WriteLine($"Word: {currentDisplay}"); // Display the current state of the word
+                    Console.WriteLine(penduDrawings[attemptsLeft - 1]); // Display the current state of the hangman
+                    Console.WriteLine($"Attempts left: {attemptsLeft}"); // Display the number of attempts left
+                    Console.Write("Guess a letter: "); // The console asks the player to guess a letter
+                    string input = Console.ReadLine().ToLower(); // the console reads the player's input and converts it to lowercase
 
-                    if (input == "q") // Ici on vérifie si le joueur a saisi 'q' pour quitter le jeu
+                    if (input == "quitter" && currentDisplay.Contains('_')) // If the player types 'quitter' and the word has not been guessed
                     {
-                        Console.WriteLine("Au revoir..."); // Ici on affiche un message de sortie
-                        return; // Ici on sort de la boucle et on termine le jeu
+                        Console.WriteLine("Goodbye..."); // Display a goodbye message to the player
+                        return; // Exit the game
                     }
 
-                    if (input.Length != 1 || !char.IsLetter(input[0])) // Ici on vérifie si le joueur a entré plus d'une lettre ou si ce n'est pas une lettre
+                    if (input.Length != 1) // If the player enters more than one letter
                     {
-                        Console.WriteLine("Erreur: Veuillez entrer qu'une seule lettre."); // Ici on affiche un message d'erreur
-                        continue; // Ici on passe à l'itération suivante de la boucle
+                        Console.WriteLine("Error: Please enter only one letter."); // Display an error message to the player
+                        continue; // Skip the rest of the code and restart the loop
+                    }                
+
+                    if(!char.IsLetter(input[0])) // If the player enters a non-letter character
+                    {
+                        Console.WriteLine("Error: Please enter a letter."); // Display an error message to the player
+                        continue; // Skip the rest of the code and restart the loop
+                    }
+                   
+                    char guessedLetter = input[0]; // Get the guessed letter from the player's input
+                    if (guessedLetters.Contains(guessedLetter)) // If the player has already guessed the letter
+                    {
+                        Console.WriteLine("You have already entered this letter, please try again."); // Display an error message to the player
+                        continue;
                     }
 
-                    char guessedLetter = input[0]; // Ici on stocke la lettre devinée par le joueur
-                    if (guessedLetters.Contains(guessedLetter)) // Ici on vérifie si le joueur a déjà entré cette lettre
-                    {
-                        Console.WriteLine("Vous avez déjà entré cette lettre, veuillez réessayer."); // Ici on affiche un message d'erreur
-                        continue; // Ici on passe à l'itération suivante de la boucle
-                    }
+                    guessedLetters.Add(guessedLetter); // Add the guessed letter to the set of guessed letters
 
-                    guessedLetters.Add(guessedLetter); // Ici on ajoute la lettre devinée par le joueur dans le HashSet guessedLetters
-
-                    if (secretWord.Contains(guessedLetter)) // Ici on vérifie si la lettre devinée par le joueur est dans le mot secret
+                    if (secretWord.Contains(guessedLetter)) // If the guessed letter is in the secret word
                     {
-                        Console.WriteLine("Correcte!"); // Ici on affiche un message pour indiquer que la lettre est correcte
-                        for (int i = 0; i < secretWord.Length; i++) // Ici on crée une boucle qui s'execute pour chaque lettre du mot secret
+                        Console.WriteLine("Correct!"); // Display a message to the player
+                        for (int i = 0; i < secretWord.Length; i++) // Iterate through the secret word
                         {
-                            if (secretWord[i] == guessedLetter) // Ici on vérifie si la lettre du mot secret est égale à la lettre devinée par le joueur
+                            if (secretWord[i] == guessedLetter) // If the letter at the current index matches the guessed letter
                             {
-                                currentDisplay = currentDisplay.Remove(i * 2, 1).Insert(i * 2, guessedLetter.ToString());// Ici on remplace l'underscore par la lettre devinée par le joueur
+                                currentDisplay = currentDisplay.Remove(i * 2, 1).Insert(i * 2, guessedLetter.ToString()); // Update the current display with the guessed letter
                             }
                         }
+                       
                     }
                     else
                     {
-                        Console.WriteLine("Incorrect, réessayez! "); // Ici on affiche un message pour indiquer que la lettre est incorrecte
-                        attemptsLeft--; // Ici on décrémente le nombre de tentatives restantes du joueur
+                        Console.WriteLine("Incorrect, try again!"); // console displays a message to the player
+                        attemptsLeft--; // Decrease the number of attempts left
                     }
                 }
 
-                if (attemptsLeft > 0)
+                if (attemptsLeft > 0) // If the player wins the game
                 {
-                    Console.WriteLine($"Bravo! Vous avez trouvé le mot secret: {secretWord} en {penduDrawings.Count - attemptsLeft} tentatives.");
+                    Console.WriteLine($"Congratulations! You found the secret word: {secretWord} in {penduDrawings.Count - attemptsLeft} attempts."); // Display a message to the player
                 }
                 else
                 {
-                    Console.WriteLine("Vous avez atteint le nombre maximum de vos tentatives. Vous avez perdu.");
-                    Console.WriteLine($"Le mot était: {secretWord}");
-                    Console.WriteLine(penduDrawings[0]);
+                    Console.WriteLine("You have reached the maximum number of your attempts. You lost."); // Display a message to the player
+                    Console.WriteLine($"The word was: {secretWord}"); // Display the secret word to the player
+                    Console.WriteLine(penduDrawings[0]); // Display the hangman drawing to the player
                 }
 
-                Console.WriteLine("Merci d'avoir joué! A bientôt!");
-                Console.WriteLine("Voulez-vous rejouer? (o/n)");
-                string playAgainInput = Console.ReadLine().ToLower();
-                playAgain = playAgainInput == "o";
+                Console.WriteLine("Thank you for playing! See you soon!"); // Display a thank you message to the player
+                Console.WriteLine("Do you want to play again? (y/n)"); // Asks the user if they want to play again
+                string replay = Console.ReadLine(); // Reads the player's input to play again
+                if (replay.ToLower() != "y") // If the player does not want to play again
+                {
+                    playAgain = false; // Set the play again variable to false to exit the game
+                }
             }
         }
     }
