@@ -1,38 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Game2
+public namespace Game2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<string> easyWords = new List<string> { "apple", "truck", "chips", "csharp", "dotnet", "orange", "burger" }; // Create a list of easy words for the game
-            List<string> mediumWords = new List<string> { "avocado", "tractor", "pineapple", "javascript", "bear", "hotdog" }; // Create a list of medium words for the game
-            List<string> hardWords = new List<string> { "dragonfruit", "transporter", "raddish", "microsoft", "elephant", "mcdonalds" };// Create a list of hard words for the game
-
-            List<string> menuOptions = new List<string> { "Easy", "Medium", "Hard" }; // Create a list of menu options for the player to choose the difficulty level
-            DisplayMainMenuPendu(menuOptions); // Display the main menu for the player to choose the difficulty level
-            int difficulty = Convert.ToInt32(Console.ReadLine()); // Read the player's input for the difficulty level
-
-            List<string> words; // Declare a list of words to store the words based on the player's chosen difficulty level
-            switch (difficulty) // Check the player's chosen difficulty level
-            {
-                case 1: // If the player chose Easy
-                    words = easyWords; // Set the words list to the list of easy words
-                    break;
-                case 2: // If the player chose Medium
-                    words = mediumWords; // Set the words list to the list of medium words
-                    break;
-                case 3: // If the player chose Hard
-                    words = hardWords; // Set the words list to the list of hard words
-                    break;
-                default: // If the player chose an invalid option
-                    Console.WriteLine("Invalid option. Defaulting to Easy."); // Display an error message to the player
-                    words = easyWords; // Set the words list to the list of easy words
-                    break;
-            }
            
+        }
+
+        public static void StartHangmanGame()
+        {
+//  List<string> easyWords = new List<string> { "apple", "truck", "chips", "csharp", "dotnet", "orange", "burger" }; // Create a list of easy words for the game
+//             List<string> mediumWords = new List<string> { "avocado", "tractor", "pineapple", "javascript", "bear", "hotdog" }; // Create a list of medium words for the game
+//             List<string> hardWords = new List<string> { "dragonfruit", "transporter", "raddish", "microsoft", "elephant", "mcdonalds" };// Create a list of hard words for the game
+
+            // List<string> menuOptions = new List<string> { "Easy", "Medium", "Hard" }; // Create a list of menu options for the player to choose the difficulty level
+            // DisplayMainMenuPendu(menuOptions); // Display the main menu for the player to choose the difficulty level
+            // int difficulty = Convert.ToInt32(Console.ReadLine()); // Read the player's input for the difficulty level
+
+            // List<string> words; // Declare a list of words to store the words based on the player's chosen difficulty level
+            // switch (difficulty) // Check the player's chosen difficulty level
+            // {
+            //     case 1: // If the player chose Easy
+            //         words = easyWords; // Set the words list to the list of easy words
+            //         break;
+            //     case 2: // If the player chose Medium
+            //         words = mediumWords; // Set the words list to the list of medium words
+            //         break;
+            //     case 3: // If the player chose Hard
+            //         words = hardWords; // Set the words list to the list of hard words
+            //         break;
+            //     default: // If the player chose an invalid option
+            //         Console.WriteLine("Invalid option. Defaulting to Easy."); // Display an error message to the player
+            //         words = easyWords; // Set the words list to the list of easy words
+            //         break;
+            // }
+           List<string> words = new List<string> { "apple", "truck", "chips", "csharp", "dotnet", "orange", "burger" };
 
             List<string> penduDrawings = new List<string> // Create a list of drawings for the hangman game
             {
@@ -128,8 +133,8 @@ namespace Game2
 
                 Console.WriteLine("Thank you for playing! See you soon!"); // Display a thank you message to the player
                 Console.WriteLine("Do you want to play again? (y/n)"); // Asks the user if they want to play again
-                string replay = Console.ReadLine(); // Reads the player's input to play again
-                if (replay.ToLower() != "y") // If the player does not want to play again
+                string? replay = Console.ReadLine(); // Reads the player's input to play again
+                if (replay?.ToLower() != "y") // If the player does not want to play again
                 {
                     playAgain = false; // Set the play again variable to false to exit the game
                 }

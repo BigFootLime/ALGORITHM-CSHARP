@@ -2,9 +2,9 @@
 
 namespace Game1
 {
-    class Program
+    public class GuessingGame
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             bool inGame = true;
             while (inGame)
